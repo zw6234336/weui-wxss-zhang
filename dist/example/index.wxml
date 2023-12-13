@@ -1,33 +1,25 @@
 <page-meta root-font-size="system"></page-meta>
 <view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
     <view class="page__hd">
-        <view aria-role="heading" aria-level="1" class="page__title">WeUI</view>
-        <view class="page__desc">WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。</view>
+        <view aria-role="heading" aria-level="1" class="page__title">TableMaster</view>
+        <view class="page__desc">TableMaster是一款使用大模型技术的高准确度图片表格识别工具。它能够准确地识别各种复杂表格，并将结果返回为可编辑的表格格式。通过TableMaster，您可以轻松处理和管理图片中的表格数据。
+</view>
     </view>
     <view class="page__bd page__bd_spacing">
-        <view class="kind-list">
-            <block wx:for="{{list}}" wx:key="id">
-                <view class="kind-list__item">
-                    <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-                        <view class="weui-flex__item">{{item.name}}</view>
-                        <image aria-role="button" aria-label="{{item.open ? ' 收起' : ' 展开'}}" class="kind-list__img" src="images/icon_nav_{{item.id}}.png"></image>
-                    </view>
-                    <view aria-hidden="{{item.open ? 'false' : 'true'}}" class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-                        <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-                            <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
-                                <navigator aria-role="menuitem" url="{{page}}/{{page}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                                    <view class="weui-cell__bd">{{page}}</view>
-                                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                                </navigator>
-                            </block>
-                        </view>
-                    </view>
-                </view>
-            </block>
-        </view>
+    <view>
+      <image class="center-image" src="{{imagePath}}" mode="aspectFit"></image>
+    </view>
+    <view>
+        <button class="upload-button" bindtap="chooseImage">上传图片</button>
+        <loading wx:if="{{isLoading}}" color="#3CC51F"></loading>  <!-- 添加一个loading组件，通过isLoading数据来控制显示和隐藏 -->
+
+    </view>
+    <view ></view>
+    <button class="download-button" bindtap="downloadFile">下载文件</button>
     </view>
     <view class="page__ft" bindtap="changeTheme">
-        <image aria-label="weui logo" src="images/icon_footer.png" style="width: 84px; height: 19px;"></image>
-        <view class="page_bottom_tips">该小程序仅演示示例，不收集个人信息。</view>
+        <image src="images/table-view-round-24px.svg" style="width: 83rpx; height: 58rpx; display: inline-block; vertical-align: middle;"></image>
+        <text style="margin-left: 3px;line-height: 58rpx;font-size: 24px;vertical-align: middle;">TableMaster</text>
+        <view class="page_bottom_tips">进一步沟通请联系：3811574730@qq.com</view>
     </view>
 </view>
